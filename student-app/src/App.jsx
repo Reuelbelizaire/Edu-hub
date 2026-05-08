@@ -1,54 +1,83 @@
-import './App.css'
-import { Card } from './Components/Card'
+import React from 'react';
+import './App.css';
+import { Card } from './Components/Card';
+import logo from './assets/Website-Logo.png'; 
+import mathImg from './assets/Deus_mathematics.png';
+import scienceImg from './assets/science.png';
+import computerScienceImg from './assets/CompSci.png';
+import humanitiesImg from './assets/humanities.png';
+import AboutMe from './AboutMe';
+import Subject from './Subject';
+import Math from './subjects/Math';
+import Science from './subjects/Science';
+import ComputerScience from './subjects/ComputerScience';
+import Humanities from './subjects/Humanities';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
+function Home() {
+  const subjects = [
+    { id: 1, title: "Mathematics", icon: "📐", description: "Fill in later", link: "/subject/math", imgsrc: mathImg, imgalt: "Mathematics image" },
+    { id: 2, title: "Science", icon: "📊", description: "Fill in later.", link: "/subject/science", imgsrc: scienceImg, imgalt: "Science image" },
+    { id: 3, title: "Computer Science", icon: "💻", description: "Fill in later.", link: "/subject/ComputerScience", imgsrc: computerScienceImg, imgalt: "Computer Science image" },
+    { id: 4, title: "Humanities", icon: "📖", description: "Fill in later.", link: "/subject/Humanities", imgsrc: humanitiesImg, imgalt: "Humanities image" }
+  ];
+
+  return (
+    <>
+      <header className="hero">
+        <h1>Your all-in-one study lab</h1>
+        <p className="description">
+          A personalized platform designed to help students bridge the gap between resources and results.
+        </p>
+      </header>
+
+      <section className="subject-section">
+        <h2>Explore Subjects</h2>
+        <div className="subject-grid">
+          {subjects.map(sub => (
+            <Card 
+              key={sub.id} 
+              title={sub.title} 
+              icon={sub.icon} 
+              description={sub.description} 
+              link={sub.link}
+              imgsrc={sub.imgsrc}
+              imgalt={sub.imgalt}
+            />
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
 
 function App() {
   return (
-    <>
-      <section id="navigation">
-        <nav className='navbar'>
-          <div className='logo'>Student App</div>
-          <ul className='nav-links'>
-            <li><a href="/">Home</a></li>
-            <li><a href="/AboutMe">About</a></li>
-            <li><a href="/Subject">Subjects!</a></li>
-           </ul> 
-        </nav> 
-        <div>
-          <h1>Your all in one study lab</h1>
-          <p className='description'>
-            Welcome to a project designed to help students excel in their studies.
-            This application provides a comprehensive platform for students to access study materials, and 
-            track their progress. Whether you're looking for resources, study tips, my app has you covered. Join us on this educational journey and unlock your full potential!
-          </p>
-        </div>
-      </section>
-      <section id="subject">
-        <h2>Subjects</h2>
-        <p>Explore our comprehensive list of subjects!</p>
-        <div className="App">
-          <Card 
-            imgsrc=""
-            imgalt=""
-            title="Math!"
-            description="Click here to learn more about Math."
-            link="/AboutMe"
-          />
-             <Card 
-            imgsrc=""
-            imgalt=""
-            title="Science!"
-            description="Click here to learn more about Science."
-            link="/AboutMe"
-          />
+    <Router>
+      <div className="main-container">
+        <nav className="navbar">
+          <div className="logo-section">
+            <img src={logo} alt="Edu-Sync Logo" className="nav-logo" />
+            <span className="logo-text">Edu-Sync</span>
+          </div>
+          <ul className="nav-links">
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/subject">Subjects</Link></li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutMe />} />
+          <Route path="/subject" element={<Subject />} />
+          <Route path="/subject/math" element={<Math />} />
+          <Route path="/subject/science" element={<Science />} />
+          <Route path="/subject/computerScience" element={<ComputerScience />} />
+          <Route path="/subject/humanities" element={<Humanities />} />
+        </Routes>
       </div>
-      
-      </section>
-    
-      <div className="App"> </div>
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;

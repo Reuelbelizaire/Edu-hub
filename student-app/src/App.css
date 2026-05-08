@@ -1,49 +1,149 @@
-/* Navigation style  */
-.navbar{
+/* 1. Global Reset & Typography */
+:root {
+  --bg-tan: #F5E6D3;
+  --slate-blue: #2c3e50;
+  --text-main: #333;
+  --accent: #e67e22;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-color: #fcfcfc;
+  color: var(--text-main);
+}
+
+/* 2. Navbar Refined */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #e6dfdf;
-  overflow: hidden;
+  padding: 15px 8%;
+  background-color: var(--bg-tan);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-logo {
+  height: 45px;
+  width: auto;
+  border-radius: 6px;
+}
+
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
 .nav-links {
   display: flex;
   list-style: none;
-  justify-content: space-between;
-  width: 200px;
+  gap: 30px;
 }
 
-/* main screen styles */
+.nav-links a {
+  text-decoration: none;
+  color: var(--slate-blue);
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* 3. Hero Section (The Text Fix) */
+.hero {
+  text-align: center;
+  padding: 60px 10%;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: var(--slate-blue);
+}
+
 .description {
-  font-size: 18px;
-  color: var(--text);
-  text-decoration: underline;
+  font-size: 1.1rem;
+  max-width: 700px;
   margin: 0 auto;
+  line-height: 1.6;
+  opacity: 0.8;
 }
 
-/* app style realted to boxes*/
-.App{
-  display: flex;
-  flex-direction: column; 
-  aling-itemsd: center;
-  justify-content: center;
-  height:100vh;
-  background-color: white;
+/* 4. The Subject Grid */
+.subject-section {
+  padding: 0 8% 80px;
 }
 
+.subject-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  border-left: 5px solid var(--accent);
+  padding-left: 15px;
+}
 
-#center {
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* 5. Card Specific Overrides (Put these in Card.css or here) */
+.card-container {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden; /* This keeps the image corners rounded! */
+  border: 1px solid #eee;
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
 }
 
+.card-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
 
+.card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: contain; /* This fixes the stretching/cropping you see now */
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+.card-title {
+  margin: 15px 0 5px;
+  font-size: 1.3rem;
+}
+
+.card-description {
+  font-size: 0.95rem;
+  padding: 0 20px;
+  color: #666;
+  flex-grow: 1; /* Pushes the button to the bottom */
+}
+
+.card-btn {
+  display: block;
+  margin: 20px;
+  padding: 12px;
+  background-color: var(--slate-blue);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.card-btn:hover {
+  background-color: var(--accent);
+}

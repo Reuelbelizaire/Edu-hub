@@ -1,68 +1,55 @@
-<section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>FaQ</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/Reuelbelizaire" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+import React from 'react';
+import './App.css';
+import { Card } from './Components/Card';
+import viteLogo from './assets/vite.svg';
+import reactLogo from './assets/react.svg';
+function AboutMe() {
+  return (
+    <section id="next-steps">
+      <div id="docs">
+        <svg className="icon" role="presentation" aria-hidden="true">    
+        </svg>
+        <h2>FaQ</h2>
+        <p>Your questions, answered</p>
+        <ul>
+          
+        </ul>
+      </div>
+      <div id="social">
+        <svg className="icon" role="presentation" aria-hidden="true">
+          <use href="/icons.svg#social-icon"></use>
+        </svg>
+        <h2>Connect with me</h2>
+        <p>Let's stay in touch and share our learning journeys!</p>
+        <ul>
+          <li>
+            <a href="https://github.com/Reuelbelizaire" target="_blank">
+              <svg
+                className="button-icon"
+                role="presentation"
+                aria-hidden="true"
+              >
+                <use href="/icons.svg#github-icon"></use>
+              </svg>
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/reuel-belizaire-1b49ab261/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BrrMjGRT6RAydh%2Br0s5uoMA%3D%3D" target="_blank">
+              <svg
+                className="button-icon"
+                role="presentation"
+                aria-hidden="true"
+              >
+                <use href="/icons.svg#linkedin-icon"></use>
+              </svg>
+              Linkedin
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  )
+}
+
+export default AboutMe
