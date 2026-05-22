@@ -60,11 +60,18 @@ function App() {
             <img src={logo} alt="Edu-Sync Logo" className="nav-logo" />
             <span className="logo-text">Edu-Sync</span>
           </div>
-          <ul className="nav-links">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/subject">Subjects</Link></li>
-          </ul>
+          <div className="dropdown">
+          <button className="dropdown-btn">
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="bar"></div>
+          </button>
+          <div className="dropdown-content">
+            <a href="/">Home</a>
+            <a href="/Subject">Subjects</a>
+            <a href="/AboutMe">About</a>
+          </div>
+        </div>
         </nav>
         <Routes>
           <Route path="/" element={<Home />} />
