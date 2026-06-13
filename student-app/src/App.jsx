@@ -21,7 +21,7 @@ function Home() {
     { id: 3, title: "Computer Science", icon: "💻", description: "Fill in later.", link: "/subject/ComputerScience", imgsrc: computerScienceImg, imgalt: "Computer Science image" },
     { id: 4, title: "Humanities", icon: "📖", description: "Fill in later.", link: "/subject/Humanities", imgsrc: humanitiesImg, imgalt: "Humanities image" }
   ];
-
+// use the subject page to talk about what subjects we offer in our platform and link to the subject pages for each subject
   return (
     <>
       <header className="hero">
@@ -75,7 +75,7 @@ function App() {
         </nav>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutMe />} />
+          <Route path="/AboutMe" element={<AboutMe />} />
           <Route path="/subject" element={<Subject />} />
           <Route path="/subject/math" element={<Math />} />
           <Route path="/subject/science" element={<Science />} />
