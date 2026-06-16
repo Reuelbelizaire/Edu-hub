@@ -6,12 +6,16 @@ import mathImg from './assets/Deus_mathematics.png';
 import scienceImg from './assets/science.png';
 import computerScienceImg from './assets/CompSci.png';
 import humanitiesImg from './assets/humanities.png';
+
 import AboutMe from './AboutMe';
 import Subject from './Subject';
 import Math from './subjects/Math';
 import Science from './subjects/Science';
 import ComputerScience from './subjects/ComputerScience';
 import Humanities from './subjects/Humanities';
+// THE MISSING LINK THAT CRASHED YOUR APP:
+import Login from './Login'; 
+
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 function Home() {
@@ -21,7 +25,7 @@ function Home() {
     { id: 3, title: "Computer Science", icon: "💻", description: "Fill in later.", link: "/subject/ComputerScience", imgsrc: computerScienceImg, imgalt: "Computer Science image" },
     { id: 4, title: "Humanities", icon: "📖", description: "Fill in later.", link: "/subject/Humanities", imgsrc: humanitiesImg, imgalt: "Humanities image" }
   ];
-// use the subject page to talk about what subjects we offer in our platform and link to the subject pages for each subject
+
   return (
     <>
       <header className="hero">
@@ -60,21 +64,19 @@ function App() {
             <img src={logo} alt="Edu-Sync Logo" className="nav-logo" />
             <span className="logo-text">Edu-Sync</span>
           </div>
-          <div className="dropdown">
-          <button className="dropdown-btn">
-            <div className="bar"></div>
-            <div className="bar"></div>
-            <div className="bar"></div>
-          </button>
-          <div className="dropdown-content">
-            <a href="/">Home</a>
-            <a href="/Subject">Subjects</a>
-            <a href="/AboutMe">About</a>
+
+          {/*navigation links */}
+          <div className="nav-links">
+            <Link to="/" className="nav-item">Home</Link>
+            <Link to="/subject" className="nav-item">Subjects</Link>
+            <Link to="/AboutMe" className="nav-item">About</Link>
+            <Link to="/Login" className="nav-item login-btn">Login</Link>
           </div>
-        </div>
         </nav>
+        
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/Login" element={<Login />} />
           <Route path="/AboutMe" element={<AboutMe />} />
           <Route path="/subject" element={<Subject />} />
           <Route path="/subject/math" element={<Math />} />
